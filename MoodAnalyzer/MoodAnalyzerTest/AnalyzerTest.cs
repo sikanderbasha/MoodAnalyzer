@@ -31,5 +31,38 @@ namespace MoodAnalyzerTest
             Assert.AreEqual(expected, Analyzer.AnalyzeMood());
         }
 
+        [TestMethod]
+       
+        public void EmptyTypeException()
+        {
+            try
+            {
+                string expected = "Happy";
+                string message = " ";
+                Analyzer Analyzer = new Analyzer(message);
+                Assert.AreEqual(expected, Analyzer.AnalyzeMood());
+            }
+            catch (AnalyzerException e)
+            {
+                Assert.AreEqual("Message should not be Empty", e.Message);
+            }
+        }
+        [TestMethod]
+      
+        public void NullTypeException()
+        {
+            try
+            {
+                string expected = "Happy";
+                string message = null;
+                Analyzer Analyzer = new Analyzer(message);
+                Assert.AreEqual(expected, Analyzer.AnalyzeMood());
+            }
+            catch (AnalyzerException e)
+            {
+                Assert.AreEqual("Message should not be Null", e.Message);
+            }
+        }
+
     }
 }

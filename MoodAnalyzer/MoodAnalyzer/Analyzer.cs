@@ -18,15 +18,20 @@ namespace MoodAnalyzer
         public string AnalyzeMood()
         {
             try
+            { 
+                 if (this.Message.Equals(string.Empty))
             {
+                throw new AnalyzerException(AnalyzerException.ExceptionsType.EMPTY_MESSAGE, "Message should not be Empty");
+            }
+            
                 if (this.Message.Contains("Sad"))
                     return "Sad";
                 else
                     return "Happy";
             }
-            catch
-            {               
-                return "Happy";
+            catch (NullReferenceException)
+            {
+                throw new AnalyzerException(AnalyzerException.ExceptionsType.NULL_MESSAGE, "Message should not be Null");
             }
         }
 
