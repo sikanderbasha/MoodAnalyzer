@@ -24,21 +24,13 @@ namespace MoodAnalyzerTest
         }
 
         [TestMethod]
-        public void Happy_Null()
-        {            
-            string expected = "Happy";          
-            Analyzer Analyzer = new Analyzer(null);         
-            Assert.AreEqual(expected, Analyzer.AnalyzeMood());
-        }
-
-        [TestMethod]
        
         public void EmptyTypeException()
         {
             try
             {
                 string expected = "Happy";
-                string message = " ";
+                string message = "";
                 Analyzer Analyzer = new Analyzer(message);
                 Assert.AreEqual(expected, Analyzer.AnalyzeMood());
             }
